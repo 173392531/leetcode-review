@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const coinChange=(coins,amount)=>{
+      let dp=new Array(amount+1).fill(Infinity)
+      dp[0]=0
+      for(let coin of coins){
+        for(let i=coin; i<=amount;i++){
+          dp[i]=Math.min(dp[i],dp[i-coin]+1)
+        }
+      }
+      return dp[amount]===Infinity?-1:dp[amount]
+    }
+  </script>
+</body>
+</html>

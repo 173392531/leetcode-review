@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var findTarget=function(root,k){
+      let set =new Set()
+      var diff=function (node){
+        if(node===null){
+          return false
+        }
+        if(set.has(k-node.val)){
+          return true
+        }
+        set.add(node.val)
+        return diff(node.left)||diff(node.right)
+      }
+      return diff(node.left)||diff(node.right)
+    }
+  </script>
+</body>
+</html>

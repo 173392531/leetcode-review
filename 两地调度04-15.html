@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var twoCitySchedCost = function (costs) {
+      const sortCosts = costs.sort((a, b) => (a[0] - a[1]) - (b[0] - b[1]));
+      const toACosts = sortCosts.splice(0, sortCosts.length / 2).reduce(((accumulator, b) => accumulator + b[0]), 0);
+      const toBCosts = sortCosts.reduce(((accumulator, b) => accumulator + b[1]), 0)
+      return toACosts + toBCosts
+    }
+  </script>
+</body>
+
+</html>

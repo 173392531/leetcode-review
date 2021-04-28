@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  var trap = function(height) {
+    const len=height.length,left_max=[],right_max=[]
+    if(len===0)return
+    var total=0;
+    left_max[0]=height[0],right_max[len-1]=height[len-1];
+    for(let i=1;i<len-1;i++){
+      left_max[i]=Math.max(height[i],left_max[i-1])
+    }
+    for(let i=len-2;i>0;i--){
+      right_max[i]=Math.max(height[i],right_max[i+1])
+    }
+    for(let i=0;i<len;i++){
+      total+=Math.min(left_max[i],right_max[i])-height[i]
+    }
+    return total
+  }
+  </script>
+</body>
+</html>

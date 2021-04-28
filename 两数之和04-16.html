@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var twoSum=function(){
+      if(!num)return [];
+      const m=new Map()
+      for(let i=0;i<nums.length;i++){
+        const n=nums[i]
+        const n2=target-nums[i]
+        if(m.has(n2)){
+          return [m.get(n2),i]
+        }
+      }
+      m.set(n,i)
+    }
+  </script>
+</body>
+</html>

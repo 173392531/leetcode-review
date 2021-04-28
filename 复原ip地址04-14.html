@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var restoreIpAddresses = function (s) {
+    //   let res = [];
+    //   dfs(s, 0, 0, '');
+    //   return res;
+    //   function dfs(string, pointer, num, path) {
+    //     if (num > 4) return;
+    //     if (num === 4 && pointer === string.length) {
+    //       res.push(path);
+    //     }
+    //     for (let i = 1; i < 4; i++) {
+    //       let str = string.substring(pointer, pointer + i);
+    //       if (str[0] === '0' && str.length > 1 || Number(str) > 255) return;
+    //       dfs(string, pointer + i, num + 1, path + str + (num === 3 ? '' : '.'))
+    //     }
+    //   }
+    // }
+
+    // var ipAddress = function (s) {
+    //   let res = []
+    //   dfs(s, 0, 0, '');
+    //   return res;
+    //   var dfs = function (string,pointer, num, path) {
+    //     if (num > 4) return
+    //     if (num === 4 && pointer === string.length) {
+    //       res.push(path);
+    //     }
+    //     for (let i = 1; i < 4; i++) {
+    //       let str = string.substring(pointer, pointer + i);
+    //       if (str[0] === '0' && str.length > 1 || Number(str) > 255) return
+    //       dfs(string, pointer + i, num + 1, path + str + (num === 3 ? '' : '.'))
+    //     }
+    //   }
+    // }
+
+    // var addIp=function(s){
+    //   var res=[]
+    //   dfs(s,0,0,'')
+    //   return res
+    //   var dfs=function(string,pointer,num,path){
+    //     if(num>4)return 
+    //     if(num===4&&pointer===string.length){
+    //       res.push(path)
+    //     }
+    //     for(let i=1;i<4;i++){
+    //       let str=string.substring(pointer,pointer+i)
+    //       if(str[0]==='0'&&str.length>1 || Number(str)>255)return 
+    //       dfs(string,pointer+i,num+1,path+str+(num===3?'':'.'))
+    //     }
+    //   }
+    // }
+
+    // var ipAddress=function(s){
+    //   var res=[]
+    //   dfs(s,0,0,'')
+    //   return res
+    //   function dfs(string,pointer,num,path){
+    //     if(num>4)return 
+    //     if(num===4&&pointer===string.length){
+    //       res.push(path)
+    //     }
+    //     for(let i=1;i<4;i++){
+    //       var str=string.substring(pointer,pointer+i)
+    //       if(str[0]==='0'&&str.length>1 || Number(str)>255 ){
+    //         return 
+    //       }
+    //       dfs(string,pointer+i,num+1,path+str+(num===3?'':'.'))
+    //     }
+    //   }
+    // }
+
+    var ipAddress = function (s) {
+      var res = []
+      bfs(s, 0, 0, '')
+      return res
+      function bfs(string, pointer, num, path) {
+        if (num > 4) return
+        if (num === 4 && pointer == string.length) {
+          res.push(path)
+        }
+        for (let i = 0; i < 4; i++) {
+          var str = string.substring(pointer, pointer + i)
+          if (str[0] === '0' && str.length > 1 || Number(str) > 255) return
+          bfs(s, pointer + i, num++, path + str + (num === 3 ? '' : '.'))
+        }
+      }
+      return res
+    }
+  </script>
+</body>
+
+</html>

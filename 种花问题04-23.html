@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var canPlaceFlowers=function(flowerbed,n){
+      let count=0;
+      const m=flowerbed.length;
+      let prev=-1;
+      for(let i=0;i<m;i++){
+        if(flowerbed[i]===1){
+          if(prev<0){
+            count+=Math.floor(i/2);
+          }else{
+            count +=Math.floor((i-prev-2)/2)
+          }
+          prev=i
+        }
+      }
+      if(prev<0){
+        count+=(m+1)/2
+      }else{
+        count+=(m-prev-1)/2
+      }
+      return count>=n
+    }
+  </script>
+</body>
+</html>

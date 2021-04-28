@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var kidsWithCandies = function (candies, extraCandies) {
+      const len =candies.length
+      var max=Math.max(...candies),arr=new Array(len).fill(false)
+      for(let i=0;i<len;i++){
+        if(candies[i]+extraCandies>=max){
+          arr[i]=true
+        }
+      }
+      return arr
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  var levelOrder = function(root) {
+    if(!root)return[]
+    let quene=[root]
+    let res=[]
+    while(quene.length>0){
+      let len=quene.length
+      let arr=[]
+      while(len){
+        let node=quene.shift()
+        arr.push(node.val)
+        if(node.left)quene.push(node.left)
+        if(node.right)quene.push(node.right)
+        len--
+      }
+      res.push(arr)
+    }
+    return res
+  }
+
+  var cengXu=function(root){
+    if(!root)return 
+    let quene=[root]
+    let res=[]
+    while(quene.length>0){
+      let len=qrr.length
+      let arr=[]
+      while(len){
+        let node=quene.shift()
+        arr.push(node.val)
+        if(node.left)quene.push(node.left)
+        if(node.right)quene.push(node.right)
+      }
+      res.push(arr)
+    }
+    return res
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var canCompleteCircuit = function (gas, cost) {
+      let left=0,start=0,totalGas=0,totalCost=0
+      for(let i=0;i<gas.length;i++){
+        totalCost+=cost[i]
+        totalGas+=gas[i]
+        left+=gas[i]-cost[i]
+        if(left<0){
+          start=i+1
+          left=0
+        }
+      }
+      if(totalGas<totalCost){
+        return -1
+      }
+      return start
+    }
+  </script>
+</body>
+</html>

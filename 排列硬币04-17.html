@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arrangeCoins = function (n) {
+      let i = 1;
+      if (n == 0) return 0
+      while (n > 0) {
+        n = n - i
+        i++
+        if (n < i) return i - 1
+      }
+    }
+  </script>
+</body>
+
+</html>

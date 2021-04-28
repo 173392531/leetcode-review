@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function rotate(arr){
+      var stack=[]
+      for(let i=0;i<arr.length;i++){
+        for(let j=0;j<arr[0].length;j++){
+          stack.push(arr[i][j])
+        }
+      }
+      for(let j=arr[0].length;j>=0;j--){
+        for(let i=0;i<arr.length;i++){
+          arr[i][j]=stack.pop()
+        }
+      }
+      return stack
+    }
+  </script>
+</body>
+</html>

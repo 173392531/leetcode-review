@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var search = function (nums, target) {
+      const len = nums.length;
+      var index = -1
+      for (let i = 1; i < len; i++) {
+        if (nums[i] < nums[i - 1]) {
+          index = i
+          break
+        }
+      }
+      const twoBreak = (left, right, key) => {
+        while (left <= right) {
+          let mid = Math.floor((left + right) / 2)
+          if (nums[mid] == target) {
+            return true
+          } else if (nums[mid] < target) {
+            left = mid + 1
+          } else {
+            right = mid - 1
+          }
+        }
+        return false
+      }
+      if (index == -1) {
+        return twoBreak(0, len - 1, target)
+      }
+      if (nums[index - 1] >= target && target >= nums[0]) return twoBreak(0, index - 1, target)
+      else if (nums[len - 1] >= target && target >= nums[index]) return twoBreak(index, len - 1, target)
+      else return false
+    }
+    console.log(search([1, 0, 1, 1, 1], 0));
+  </script>
+</body>
+
+</html>

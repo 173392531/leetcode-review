@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var buddyStrings = function (A, B) {
+      if (A.length !== B.length) return false
+      if (A == B) {
+        return A.length > new Set(A).size
+      }
+      let a = '', b = ''
+      for (let i = 0; i < A.length; i++) {
+        if (A[i] !== B[i]) {
+          a = A[i] + a
+          b += B[i]
+        }
+      }
+      return a.length === 2 && a === b
+    }
+  </script>
+</body>
+
+</html>

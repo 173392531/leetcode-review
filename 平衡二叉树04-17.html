@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var isBalanced=function(root){
+      if(!root){
+        return true
+      }
+      return Math.abs(depth(root.left)-depth(root.right))<2&&isBalanced(root.left)&&isBalanced(root.right)
+    }
+    function depth(root){
+      if(!root){
+        return 0
+      }
+      else{
+        return Math.max(depth(root.left),depth(root.right))+1
+      }
+    }
+
+
+
+    var balancedTree=function(root){
+      if(!root)return true
+      return Math.abs(deep(root.left)-deep(root.right))<2&&balancedTree(root.left)&&balancedTree(root.right)
+    }
+    function deep(root){
+      if(!root)return 0
+      else{
+        return Math.max(deep(root.left),deep(root.right))+1
+      }
+    }
+  </script>
+</body>
+</html>

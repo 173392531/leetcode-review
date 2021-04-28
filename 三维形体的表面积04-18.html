@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var surfaceArea = function (grid) {
+      let surfaceAreaAmount = 0;
+      for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid.length; j++) {
+          const count = grid[i][j]
+          if (!count) continue
+          surfaceAreaAmount += 2 + 4 * count
+          if (i + 1 < grid.length) {
+            surfaceAreaAmount -= 2 * Math.min(count, grid[i + 1][j]);
+          }
+          if (j + 1 < grid.length) {
+            surfaceAreaAmount -= 2 * Math.min(count, grid[i][j + 1]);
+          }
+        }
+      }
+      return surfaceAreaAmount;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var countCharacters = function (words, chars) {
+      let size=0;
+      var map=new Map()
+      for(let c of chars){
+        map.set(c,(map.has(c)?map.get(c)+1:1))
+      }
+      for(let word of words){
+          let mapres=new Map()
+        for(let k of word){
+          mapres.set(k,(mapres.has(k)?mapres.get(k)+1:1))
+        }
+        let flag=true
+        for(let k of word){
+          if(mapres.get(k)>map.get(k)||map.get(k)===undefined){
+            flag=false
+            break
+          }
+        }
+        if(flag){
+          size+=word.length
+        }
+      }
+      return size
+    }
+  </script>
+</body>
+</html>

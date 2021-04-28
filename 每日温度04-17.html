@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 单调栈
+    // const dailyTemperatures = (T) => {
+    //   const res = new Array(T.length).fill(0)
+    //   const stack = []
+    //   for (let i = T.length - 1; i >= 0; i--) {
+    //     while (stack.length && T[i] >= T[stack[stack.length - 1]]) {
+    //       stack.pop()
+    //     }
+    //     if (stack.length) {
+    //       res[i] = stack[stack.length - 1] - i
+    //     }
+    //     stack.push(i)
+    //   }
+    //   return res
+    // }
+
+        const dailyTemperatures = (T) => {
+          var stack=[],res=Array(T.length).fill(0)
+          for(let i=T.length-1;i>=0;i--){
+            while(stack.length && T[i]>=T[stack[stack.length-1]]){
+              stack.pop()
+            }
+            if(stack.length){
+              res[i]=stack[stack.length-1]-i
+            }
+            stack.push(i)
+          }
+          return res
+        }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+        var backspaceCompare = function(S, T) {
+          const toStack=(x)=>{
+            var stack=[]
+            for(let y of x){
+              if(y=='#'){
+                stack.pop()
+              }else{
+                stack.push(y)
+              }
+            }
+            return stack.join('')
+          }
+          return toStack(S)===toStack(T)
+        }
+  </script>
+</body>
+</html>

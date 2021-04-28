@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var findNumberIn2DArray = function (matrix, target) {
+      if(matrix.length==0||matrix[0].length==0)return false
+      let maxRow=matrix.length-1
+      let maxCol=matrix[0].length-1
+      let [row,col]=[maxRow,0]
+      while(row>=0&&col<=maxCol){
+        if(target>matrix[row][col]){
+          col++
+        }else if(target<matrix[row][col]){
+          row--
+        }else{
+          return true
+        }
+      }
+      return false
+    }
+  </script>
+</body>
+</html>

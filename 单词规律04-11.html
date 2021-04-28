@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var wordPattern = function (pattern, s) {
+      var p=[...pattern],word=s.split(' ')
+      if(p.length!==word.length)return false
+      var map=new Map(),tap=new Map()
+      for(let i=0;i<p.length;i++){
+        if(map.get(p[i])&&map.get(p[i])!==word[i]){
+        return false
+        }else if(tap.get(word[i])&&tap.get(word[i])!==p[i]){
+          return false
+        }else if(map.get(p[i])&&tap.get(word[i])&&tap.get(map.get(p[i]))!==p[i]){
+          return false
+        }else
+        map.set(p[i],word[i])
+        tap.set(word[i],p[i])
+      }
+      return true
+    }  
+  </script>
+</body>
+</html>

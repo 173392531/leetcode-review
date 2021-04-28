@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class MyHashSet{
+      constructor(){
+        this.list=new Uint8Array(10000000)
+      }
+      add(value){
+        this.list[value]=true
+      }
+      contains(value){
+        return this.list[value];
+      }
+      remove(value){
+        if(this.list[value])
+        this.list[value]=false
+      }
+    }
+  </script>
+</body>
+</html>

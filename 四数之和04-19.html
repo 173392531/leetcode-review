@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const fourSum = (nums, target) => {
+      const result = [];
+      nums.sort((a, b) => a - b);
+      const set = new Set()
+      const recursion = (path, sum, index) => {
+        for (let i = index; i < nums.length; i++) {
+          const nextSum = sum + nums[i]
+          if (nextSum > 0 && nextSum > target) {
+            break
+          }
+          path.push(nums[i])
+          if (path.length === 4) {
+            if (nextSum === target) {
+              const pathStr = path.join('-')
+              if (!set.has(pathStr)) {
+                result.push(path.slice())
+                set.add(pathStr)
+              }
+            }
+          } else {
+            recursion(path, nextSum, i + 1)
+          }
+          path.pop()
+        }
+      }
+      recursion([], 0, 0);
+      return result
+    }
+  </script>
+</body>
+
+</html>

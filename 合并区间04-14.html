@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var merge = function (intervals) {
+      let res=[]
+      intervals.sort((a,b)=>a[0]-b[0])
+      var prev=intervals[0]
+      for(let i=1;i<intervals.length;i++){
+        var nrev=intervals[i]
+        if(prev[1]>=nrev[0]){
+          prev[1]=Math.max(prev[1],nrev[1])
+        }else{
+          res.push(prev)
+          prev=nrev
+        }
+      }
+      res.push(prev)
+      return res
+    }
+  </script>
+</body>
+
+</html>

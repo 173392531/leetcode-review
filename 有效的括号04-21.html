@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var isValid=function(s){
+      s=s.split('')
+      let sl=s.length
+      if(sl%2)return false
+      let map=new Map([[')','('],[']','['],['}','{']]);
+      let stack=[]
+      for(let i of s){
+        if(map.get(i)){
+          if(stack[stack.length-1]!==map.get(i))return false
+          else stack.pop()
+        }else{
+          stack.push(i)
+        }
+      }
+      return !stack.length
+    }
+  </script>
+</body>
+</html>

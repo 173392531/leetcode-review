@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var findCircleNum = function (isConnected) {
+      let n = isConnected.length
+      let total = 0
+      let set = new Set()
+      for (let i = 0; i < n; i++) {
+        if (set.has(i)) continue
+        dfs(i)
+        total++
+      }
+      return total
+      function dfs(r) {
+        if (set.has(r)) return
+        set.add(r)
+        for (let c = 0; c < n; c++) {
+          if (isConnected[r][c] === 1) {
+            dfs(c)
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

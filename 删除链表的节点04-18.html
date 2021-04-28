@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var deleteNode=function(head,val){
+      if(head.val==val){
+        return next
+      }
+      head.next=deleteNode(head.next,val)
+      return head
+    }
+
+    var myDelete=function(head,val){
+      if(head.val=val){
+        return head.next
+      }
+      head.next=myDelete(head.next,val);
+      return head
+    }
+  </script>
+</body>
+</html>

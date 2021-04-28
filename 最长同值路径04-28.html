@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const longestUnivaluePath=(root)=>{
+            let res=0
+            const dfs=(root)=>{
+                if(root==null)return 0
+                const left=dfs(root.left)
+                const right=dfs(root.right)
+                let leftPath=0,rightPath=0
+                if(root.left&&root.left.val==root.val){
+                    leftPath=left+1
+                }
+                if(root.right&&root.right.val==root.val){
+                    rightPath=right+1
+                }
+                res=Math.max(res,leftPath+rightPath)
+                return Math.max(rightPath,leftPath)
+            }
+            dfs(root)
+            return res
+        }
+
+        const lup=(root)=>{
+            let res=0
+            const dfs=(root)=>{
+                if(root==null)return 0
+                const left=dfs(root.left)
+                const right=dfs(root.right)
+                let leftPath=0,rightPath=0
+                if(root.left && root.left.val==root.val){
+                    leftPath=left+1
+                }
+                if(root.right && root.right.val==root.val){
+                    rightPath=right+1
+                }
+                res=Math.max(res,leftPath+rightPath)
+                return Math.max(rightPath,leftPath)
+            }
+            dfs(root)
+            return res
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var MinStack = function () {
+            this.x_stack=[];
+            this.min_stack=[Infinity];
+        }
+        MinStack.prototype.push=function(x){
+            this.x_stack.push(x);
+            this.min_stack.push(Math.min(this.min_stack[this.min_stack.length-1],x));
+        }
+        MinStack.prototype.pop=function(){
+            this.x_stack.pop()
+            this.min_stack.pop()
+        }
+        MinStack.prototype.top=function(){
+            return this.x_stack[this.x_stack.length-1]
+        }
+        MinStack.prototype.getMin=function(){
+            return this.min_stack[this.min_stack.length-1]
+        }
+    </script>
+</body>
+
+</html>

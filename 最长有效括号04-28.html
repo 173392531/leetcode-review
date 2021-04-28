@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const longestValidParentheses=(s)=>{
+            let maxLen=0;
+            const stack=[];
+            stack.push(-1)
+            for(let i=0;i<s.length;i++){
+                const c=s[i];
+                if(c=='('){
+                    stack.push(i)
+                }else{
+                    stack.pop();
+                    if(stack.length){
+                        const curMaxLen=i-stack[stack.length-1]
+                        maxLen=Math.max(maxLen,curMaxLen);
+                    }else{
+                        stack.push(i)
+                    }
+                }
+            }
+            return maxLen
+        }
+        
+        const lvpt=(s)=>{
+            let maxLen=0;
+            const stack=[];
+            stack.push(-1)
+            for(let i=0;i<s.length;i++){
+                let c=s[i]
+                if(c=='('){
+                    stack.push(i)
+                }else{
+                    stack.pop()
+                    if(stack.length){
+                        const curMax=i-stack[stack.length-1]
+                        maxLen=Math.max(maxLen,curMax)
+                    }else{
+                        stack.push(i)
+                    }
+                }
+            }
+            return maxLen
+        }
+    </script>
+</body>
+</html>
